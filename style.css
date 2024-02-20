@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #070F2B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-container {
+    background-color: #1B1A55;
+    /* width: 20%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 30px 15px;
+    border-radius: 10px;
+}
+
+.display {
+    font-family: "Kode Mono", monospace;
+    font-size: 28px;
+    letter-spacing: 2px;
+    background-color: #070F2B;
+    width: 100%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    text-align: end;
+    color: #9290C3;
+}
+
+.keyboard {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.keyboard div {
+    background-color: #535C91;
+    width: 55px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #040713;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.keyboard div:hover{
+    background-color: #cac8e6;
+    transition: 0.3s;
+}
+
+.keyboard .number-key {
+    background-color: #9290C3;
+}
