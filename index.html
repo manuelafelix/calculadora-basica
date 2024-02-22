@@ -15,45 +15,43 @@
 <body>
     <main>
         <div class="calculator-container">
-            <div class="display">11+2</div>
+            <div id="display" max-length="3"></div>
 
             <div class="keyboard">
 
-                <div class="operations-historic">
+                <div id="operations-historic">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                 </div>
                 <div id="clean-key">C</div>
                 <div id="delete-key">
                     <i class="fa-solid fa-delete-left"></i>
                 </div>
-                <div id="addition-key">+</div>
+                <div class="operation-key" id="+">+</div>
 
-                <div class="number-key">1</div>
-                <div class="number-key">2</div>
-                <div class="number-key">3</div>
+                <div class="number-key display-key" id="1">1</div>
+                <div class="number-key display-key" id="2">2</div>
+                <div class="number-key display-key" id="3">3</div>
+                <div class="operation-key" id="-">-</div>
 
-                <div id="subtraction-key">-</div>
+                <div class="number-key display-key" id="4">4</div>
+                <div class="number-key display-key" id="5">5</div>
+                <div class="number-key display-key" id="6">6</div>
+                <div class="operation-key" id="x">x</div>
 
-                <div class="number-key">4</div>
-                <div class="number-key">5</div>
-                <div class="number-key">6</div>
+                <div class="number-key display-key" id="7">7</div>
+                <div class="number-key display-key" id="8">8</div>
+                <div class="number-key display-key" id="9">9</div>
+                <div class="operation-key" id="÷">÷</div>
 
-                <div id="multiplication-key">x</div>
-
-                <div class="number-key">7</div>
-                <div class="number-key">8</div>
-                <div class="number-key">9</div>
-
-                <div id="division-key">÷</div>
-
-                <div id="negative-key">+/-</div>
-                <div class="number-key">0</div>
-                <div id="comma-key">,</div>
-
-                <div id="division-key">=</div>
+                <div class="negative-key display-key" id="-">+/-</div>
+                <div class="number-key display-key" id="0">0</div>
+                <div class="comma-key display-key" id=",">,</div>
+                <div class="operation-key equal-key" id="=">=</div>
             </div>
         </div>
     </main>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
