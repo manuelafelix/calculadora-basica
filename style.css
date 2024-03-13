@@ -15,7 +15,7 @@ main {
     align-items: center;
 }
 
-.calculator-container {
+#calculator_container {
     background-color: #1B1A55;
     display: flex;
     flex-direction: column;
@@ -25,26 +25,27 @@ main {
 }
 
 #display {
+    width: 276px;
     font-family: "Kode Mono", monospace;
     font-size: 28px;
     letter-spacing: 2px;
     background-color: #070F2B;
-    width: 100%;
     height: 54px;
     padding: 10px 5px;
     border-radius: 5px;
     text-align: end;
     color: #9290C3;
+    overflow: hidden;
 }
 
-.keyboard {
+#keyboard {
     margin-top: 40px;
     display: grid;
     grid-template-columns: repeat(4, 54px);
     gap: 20px;
 }
 
-.keyboard div {
+#keyboard div {
     background-color: #535C91;
     width: 55px;
     padding: 15px;
@@ -58,11 +59,11 @@ main {
     cursor: pointer;
 }
 
-.keyboard div:hover{
+#keyboard div:hover{
     background-color: #cac8e6;
     transition: 0.3s;
 }
 
-.keyboard .number-key {
+#keyboard .number-key {
     background-color: #9290C3;
 }
