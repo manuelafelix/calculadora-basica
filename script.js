@@ -1,5 +1,5 @@
 const display = document.getElementById('display');
-const keys = document.querySelectorAll('.keyboard div');
+const keys = document.querySelectorAll('#keyboard div');
 
 // array que vai guardar a expressão numérica
 const expression = [];
@@ -13,8 +13,15 @@ keys.forEach(key => {
 
         // verifica se o elemento clicado tem uma classe e se tem a classe 'display-key'
         if (keyClass && keyClass.includes('display-key')) {
-            // só mostra no display se a condição acima for verdadeira
-            display.textContent += value;
+            // se já tiver um número no display e clicar na tecla de sinal negativo, adiciona o sinal na frente do número
+            if (keyClass.includes('negative-key') && display.textContent != '') {
+                let negativeKey = value + display.textContent
+                display.textContent = negativeKey;
+            }
+            else {
+                display.textContent += value;
+            }
+
         }
         // verifica se tem algum número no display e se uma tecla de operação foi clicada
         if (display.textContent && keyClass && keyClass.includes('operation-key')) {
@@ -42,35 +49,44 @@ function createExpression(operationValue) {
 // função que realiza a operação e recebe uma expressão do tipo: [1, +, 2, =]
 function operationFunction(expressionArray) {
     // pega os números na expressão
-    let number1 = Number(expressionArray[0]);
-    let number2 = Number(expressionArray[2]);
+    // substitui a vírgula pelo ponto para fazer o cálculo
+    let number1 = expressionArray[0].replace(',', '.');
+    let number2 = expressionArray[2].replace(',', '.');
     // pega a operação escolhida, na expressão
     let operation = expressionArray[1];
+    let result;
+    let stringResult;
 
     // verifica qual é a operação e realiza ela
-    switch(operation) {
+    switch (operation) {
         case '+':
-            let sumResult = number1 + number2;
-            display.textContent = sumResult;
-        break;
+            result = Number(number1) + Number(number2);
+            // converte o resultado em uma string
+            stringResult = result.toString();
+            // substitui o ponto pela vírgula quando for mostrar no display
+            display.textContent = stringResult.replace('.', ',');
+            break;
         case '-':
-            let subtractionResult = number1 - number2
-            display.textContent = subtractionResult;
-        break;
+            result = Number(number1) - Number(number2);
+            stringResult = result.toString();
+            display.textContent = stringResult.replace('.', ',');
+            break;
         case 'x':
-            let multiplicationResult = number1 * number2;
-            display.textContent = multiplicationResult;
-        break;
+            result = Number(number1) * Number(number2);
+            stringResult = result.toString();
+            display.textContent = stringResult.replace('.', ',');
+            break;
         case '÷':
             if (number2 === 0) {
                 alert('Não é possível dividir por 0')
                 display.textContent = '';
             } else {
-                let divisionResult = number1 / number2;
-                if (Number.isInteger(divisionResult)) {
-                    display.textContent = divisionResult;
+                result = Number(number1) / Number(number2);
+                if (Number.isInteger(result)) {
+                    display.textContent = result;
                 } else {
-                    display.textContent = divisionResult.toFixed(1);
+                    stringResult = result.toFixed(9).toString();
+                    display.textContent = stringResult.replace('.', ',');
                 }
             }
     }
@@ -79,6 +95,6 @@ function operationFunction(expressionArray) {
     expressionArray.splice(0);
     // se apertar a tecla = ele limpa o array da expressão, para poder começar de novo
     if (operation == '=') {
-        expression.splice(0);
+        expressionArray.splice(0);
     }
 }
