@@ -28,6 +28,15 @@ keys.forEach(key => {
             // chama a função para criar a expressão númerica passando o valor da operação
             createExpression(value);
         }
+        // funcionalidade na tecla de deletar
+        if (value === 'delete_key' && display.textContent != '') {
+            // guarda o valor que está no display
+            const currentNumber = display.textContent;
+            // guarda o número sem o último dígito
+            const newNumber = currentNumber.substring(0, currentNumber.length - 1);
+            // exibe o novo número (sem o último dígito) no display
+            display.textContent = newNumber;
+        }
     })
 });
 
@@ -77,7 +86,7 @@ function operationFunction(expressionArray) {
             display.textContent = stringResult.replace('.', ',');
             break;
         case '÷':
-            if (number2 === 0) {
+            if (number2 == 0) {
                 alert('Não é possível dividir por 0')
                 display.textContent = '';
             } else {
