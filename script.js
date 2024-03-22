@@ -29,13 +29,18 @@ keys.forEach(key => {
             createExpression(value);
         }
         // funcionalidade na tecla de deletar
-        if (value === 'delete_key' && display.textContent != '') {
+        // condição opcional, pois o elemento clicado pode ser o ícone também
+        if (value === 'delete_key' || keyClass && keyClass.includes('fa-delete-left') && display.textContent != '') {
             // guarda o valor que está no display
             const currentNumber = display.textContent;
             // guarda o número sem o último dígito
             const newNumber = currentNumber.substring(0, currentNumber.length - 1);
             // exibe o novo número (sem o último dígito) no display
             display.textContent = newNumber;
+        }
+        // funcionalidade na tecla C (clean)
+        if (value === 'clean_key' && display.textContent != '') {
+            display.textContent = '';
         }
     })
 });
